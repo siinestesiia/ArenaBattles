@@ -1,0 +1,9 @@
+ClassCards.md
+
+# Compiled binaries
+main
+*.o
+*.out
+
+# IDE specific files
+.vscode/
