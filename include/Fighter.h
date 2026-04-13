@@ -3,6 +3,7 @@
 
 #include <string>
 
+// Base class for Player and Enemy.
 class Fighter
 {
 protected:

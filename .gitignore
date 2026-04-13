@@ -1,7 +1,8 @@
+# Design documents
 ClassCards.md
 
 # Compiled binaries
-main
+ArenaBattles
 *.o
 *.out
 

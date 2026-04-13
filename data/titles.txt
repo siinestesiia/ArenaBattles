@@ -1,0 +1,21 @@
+# Enemy titles ---
+the Butcher
+the Bloodsucker
+the Bone-breaker
+the Destroyer
+the Skull-Cracker
+the Man-Eater
+the Warlord
+the Horde-Master
+the Storm-Bringer
+the Grave-Walker
+the Oath-Breaker
+the Earth-Shaker
+the Shield-Smasher
+the Spine-Ripper
+the Horde-Master
+the Unbowed
+the Spirit-Talker
+the Rot-Weaver
+the Undead
+the Ghost
