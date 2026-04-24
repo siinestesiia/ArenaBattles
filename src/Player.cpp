@@ -2,21 +2,32 @@
 #include "Player.h"
 
 #include <iostream>
+#include <algorithm>
 
-void Player::drinkPotion()
+bool Player::drinkPotion()
 {
+    if (!isAlive()) { return false; } // Can't heal if dead...
+    
     if (m_potions <= 0)
     {
-        std::cout << "You don't have any potions left... Buy them at the Shop!" << '\n';
+        std::cout << "\nYou don't have any potions left... Buy them at the Shop!" << '\n';
         m_potions = 0; // The amount of potions can't be below zero.
-        return;
+        return false;
+    }
+
+    if (m_health == m_maxHealth)
+    {
+        std::cout << "\nYou're already at full health..." << '\n';
+        return false;
     }
 
     m_potions -= 1;
-
-    // Heal process here ---
-    // Check if healing is actually needed.
-    // Heal to max Health or 25 points or something like that.
+    const int potionHeal { 25 }; // Potions restore 25 hp.
+    // Keep health between 0 and maxHealth.
+    m_health = std::clamp(m_health + potionHeal, 0, m_maxHealth);
+    std::cout << "\n# Health increased by " << potionHeal << " points...\n";
+    
+    return true;
 }
 
 void Player::spendCoins(int amount)
@@ -24,8 +35,7 @@ void Player::spendCoins(int amount)
     if (m_coins < amount)
     {
         std::cout << "Not enough coins... Earn coins by defeating enemies!" << '\n';
-        if (m_coins <= 0) { m_coins = 0; return; }
+        return;
     }
-
     m_coins -= amount;
 }

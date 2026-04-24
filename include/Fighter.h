@@ -9,12 +9,13 @@ class Fighter
 protected:
     std::string m_name;
     int m_health;
+    int m_maxHealth;
     int m_damage;
 
 public:
     // Constructor ---
     Fighter(const std::string& name, int health, int damage)
-        : m_name{ name }, m_health{ health }, m_damage{ damage }
+        : m_name{ name }, m_health{ health }, m_maxHealth{ health }, m_damage{ damage }
     {}
 
     // Methods ---

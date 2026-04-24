@@ -16,7 +16,7 @@ public:
     {}
     
     // Methods ---
-    void drinkPotion();
+    bool drinkPotion();
     void spendCoins(int amount); // Used by the Shop.
 
     // Getters ---
