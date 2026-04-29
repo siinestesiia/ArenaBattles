@@ -1,5 +1,6 @@
 #include "Fighter.h"
 #include "Player.h"
+#include "UIHandler.h"
 
 #include <iostream>
 #include <algorithm>
@@ -10,14 +11,14 @@ bool Player::drinkPotion()
     
     if (m_potions <= 0)
     {
-        std::cout << "\nYou don't have any potions left... Buy them at the Shop!" << '\n';
+        UIHandler::printMessage("You don't have any potions left... Buy them at the Shop!");
         m_potions = 0; // The amount of potions can't be below zero.
         return false;
     }
 
     if (m_health == m_maxHealth)
     {
-        std::cout << "\nYou're already at full health..." << '\n';
+        UIHandler::printMessage("You're already at full health...");
         return false;
     }
 
@@ -25,17 +26,39 @@ bool Player::drinkPotion()
     const int potionHeal { 25 }; // Potions restore 25 hp.
     // Keep health between 0 and maxHealth.
     m_health = std::clamp(m_health + potionHeal, 0, m_maxHealth);
-    std::cout << "\n# Health increased by " << potionHeal << " points...\n";
+    UIHandler::printMessage("# Health increased by " + std::to_string(potionHeal) + " points...");
     
     return true;
 }
 
-void Player::spendCoins(int amount)
+bool Player::spendCoins(int amount)
 {
     if (m_coins < amount)
     {
-        std::cout << "Not enough coins... Earn coins by defeating enemies!" << '\n';
-        return;
+        UIHandler::printMessage("Not enough coins... Earn them by defeating enemies!");
+        return false;
     }
+
     m_coins -= amount;
+    return true;
+}
+
+void Player::addPotion(int amount)
+{
+    m_potions += amount;
+}
+
+void Player::addCoins(int amount)
+{
+    m_coins += amount;
+}
+
+void Player::addLevel()
+{
+    m_level += 1;
+}
+
+void Player::resetHealth()
+{
+    m_health = m_maxHealth;
 }

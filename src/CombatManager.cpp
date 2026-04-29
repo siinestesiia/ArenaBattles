@@ -3,8 +3,6 @@
 #include "Player.h"
 #include "Enemy.h"
 
-#include <iostream>
-
 const std::vector<std::string> CombatManager::m_combatOptions {"Attack.", "Drink potion.", "Flee."};
 
 CombatResult CombatManager::startFighting(Player& player, Enemy& enemy)

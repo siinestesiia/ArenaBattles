@@ -3,6 +3,7 @@ ClassCards.md
 
 # Compiled binaries
 ArenaBattles
+ArenaBattles.exe
 *.o
 *.out
 

@@ -18,6 +18,7 @@ public:
 
     static void displayStatus(const Player& player, const Enemy& enemy);
     static void displayAction(const std::string& attacker, const std::string& target, int damage);
+    static void displayInventory(const Player& player);
     
     // Interaction layer ---
     static void pressEnterToContinue();

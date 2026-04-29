@@ -1,7 +1,6 @@
 #ifndef COMBATMANAGER_H
 #define COMBATMANAGER_H
 
-#include <string>
 #include <vector>
 #include "Player.h"
 #include "Enemy.h"

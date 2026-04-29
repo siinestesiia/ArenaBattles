@@ -9,7 +9,7 @@
 // Output Layer ---
 void UIHandler::printMessage(const std::string& message)
 {
-    std::cout << message << '\n';
+    std::cout << '\n' << message << '\n';
 }
 
 void UIHandler::printHeader(const std::string& header)
@@ -66,6 +66,7 @@ void UIHandler::displayStatus(const Player& player, const Enemy& enemy)
     std::cout << "\n-- " << player.getName() << " ----\n"
               << "\tHP: " << player.getHealth() << " points." << '\n'
               << "\tDamage: " << player.getDamage() << " points." << '\n'
+              << "\tLevel: " << player.getLevel() << "." << '\n'
               << "\tPotions: " << player.getPotions() << '.' << '\n'
               << "\tCoins: " << player.getCoins() << '.' << '\n'
 
@@ -77,4 +78,11 @@ void UIHandler::displayStatus(const Player& player, const Enemy& enemy)
 void UIHandler::displayAction(const std::string& attacker, const std::string& target, int damage)
 {
     std::cout << "\n>> " << attacker << " attacks " << target << " dealing " << damage << " damage points.\n";
+}
+
+void UIHandler::displayInventory(const Player& player)
+{
+    std::cout << "-- " << player.getName() << "'s Inventory ----\n"
+              << "- Potions: " << player.getPotions() << ".\n"
+              << "- Coins: " << player.getCoins() << ".\n";
 }
